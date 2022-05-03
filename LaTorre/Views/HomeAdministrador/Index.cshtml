@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>Bienvenidos</h2>
+<div class="row">
+    <div class="col-sm-8">
+        <div style="width:100%; max-height:650px;" class="pt-4" id="calendar"></div>
+    </div>
+    <div class="col-sm-4 mt-5">
+        <br />
+        <div class="card" style="width: 100%;">
+            <div class="card-header">
+                Productos más vendidos del mes
+            </div>
+            <div class="card-body">
+                <ul id="cuerpoTop">
+                    <li>Cuadernos espantado carta</li>
+                    <li>Microondas</li>
+                    <li>Licuadora</li>
+                    <li>Archivador doble oficio</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card text-dark bg-light mt-4" style="max-width: 100%;">
+            <div class="card-header">Citas para hoy</div>
+            <div class="card-body" id="cuerpoCitas">
+                <ul>
+                    <li>Rodrigo@gmail.com 12:00</li>
+                    <li>Mariana@gmail.com 15:00</li>
+                    <li>Lionel@gmail.com 18:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card text-dark bg-light mt-4" style="max-width: 100%;">
+            <div class="card-header">Ingresos del mes</div>
+            <div class="card-body" id="curpoIngresos">
+                <p class="text-center">$ 2500</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+     document.addEventListener('DOMContentLoaded', function () {
+        var initialLocaleCode = 'es';
+        //var lista = [];
+        @*$.getJSON('@Url.Action("Listar", "Home")', function (l)
+        {*@
+            //lista = l;
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+                },
+                initialDate: new Date(),
+                locale: initialLocaleCode,
+                buttonIcons: true, // show the prev/next text
+                weekNumbers: true,
+                navLinks: true, // can click day/week names to navigate views
+                editable: false,
+                dayMaxEvents: true, // allow "more" link when too many events
+                eventColor: '#334756',
+                //events: lista,
+                @*eventClick: function (info) {
+                    $.getJSON('@Url.Action("DetalleCita", "Home")', { Id: info.event.id }, function (o) {
+                        $("#nombreCompleto").val(o.nombreCompleto);
+                        $("#correoPersona").val(o.correo);
+                        $("#fecha").val(o.fecha);
+                        $("#hora").val(o.hora);
+                        $("#motivo").val(o.motivo);
+                    });
+                    $("#modalDetalleCita").modal('show');
+                }*@
+            });
+            calendar.render();
+/*        });*/
+    });
+
+</script>

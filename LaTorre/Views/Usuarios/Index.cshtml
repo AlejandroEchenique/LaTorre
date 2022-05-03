@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>Usuarios</h2>
+<div id="cargando" class="text-center">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="table-responsive" id="contenido">
+    <table id="tabla" class="table table-striped table-bordered display" style="width:100%"></table>
+</div>
+
+<div class="modal fade" id="ModalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Usuarios</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <input type="text" class="form-control" id="idPersona" hidden="hidden">
+                    <div class="form-group col-md-12">
+                        <label>Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Apellido Paterno:</label>
+                        <input type="text" class="form-control" id="aPaterno" placeholder="Apellido Paterno">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Apellido Materno:</label>
+                        <input type="text" class="form-control" id="aMaterno" placeholder="Apellido Materno">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>Correo:</label>
+                        <input type="text" class="form-control" id="correo" placeholder="Correo">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>Contraseña:</label>
+                        <input type="password" class="form-control" id="contraseña" placeholder="Contraseña">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-ejecucion" onclick="Guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    tabla = $('#tabla').DataTable({
+        columns: [
+            { title: "#", width: '5%' },
+            { title: "Nombre Completo", width: '35%' },
+            { title: "correo", width: '30%' },
+            { title: "Estado", width: '20%' },
+            { title: "<button  class='btn btn-ejecucion' data-bs-toggle='modal' data-bs-target='#ModalUsuario' onclick='Agregar()'>Nuevo <i class='fa fa-plus-circle' aria-hidden='true'></i></button>", width: '10%' }
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+        },
+        "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
+    });
+    $("#cargando").show();
+    $("#contenido").hide();
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#cargando").hide();
+            $("#contenido").show();
+            Actualizar();
+        }, 1000);
+    });
+</script>

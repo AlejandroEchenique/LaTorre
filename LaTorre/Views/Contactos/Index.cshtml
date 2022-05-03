@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-top: 100px; margin-bottom: 100px;">
+    <h2 class="text-center">Agendar Visita Presencial</h2>
+    <div class="row">
+        <div class="col-sm-6 pt-3">
+            <div class="row">
+                <div class="mb-2 col-sm-6">
+                    <label class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" placeholder="Nombre" id="nombre">
+                </div>
+                <div class="mb-2 col-sm-6">
+                    <label class="form-label">Correo:</label>
+                    <input type="email" class="form-control" placeholder="Correo" id="correo">
+                </div>
+                <div class="mb-2 col-sm-12">
+                    <label class="form-label">Fecha y Hora:</label>
+                    <input type="datetime-local" class="form-control" id="fecha" />
+                </div>
+                <div class="mb-2 col-sm-12">
+                    <label class="form-label">Mensaje:</label>
+                    <textarea class="form-control" rows="3" placeholder="Mensaje para nosotros" id="motivo"></textarea>
+                </div>
+                <div class="col-sm-12 mt-4">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-ejecucion" type="button">Agendar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 pt-3">
+            <p>
+                La tienda es un tipo de establecimiento comercial en el cual la gente compra bienes o servicios a cambio del desembolso de una determinada cantidad de dinero, es decir, del valor monetario con el cual el producto o servicio ha sido asignado.
+            </p>
+            <p>
+                La tienda es un tipo de establecimiento comercial en el cual la gente compra bienes o servicios a cambio del desembolso de una determinada cantidad de dinero, es decir, del valor monetario con el cual el producto o servicio ha sido asignado.
+            </p>
+        </div>
+        <div class="col-sm-12 mt-5">
+            <h2 class="text-center mt-3">Nuestra Ubicacion</h2>
+            <iframe class="pt-3" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30171.97182601741!2d-65.28188266044923!3d-19.041896899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93fbc8b52d6095d5%3A0x9788e2a0c2adebe2!2sParque%20Sim%C3%B3n%20Bol%C3%ADvar!5e0!3m2!1ses!2sbo!4v1651538787688!5m2!1ses!2sbo" height="400" style="border: 0;width: 100%;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+

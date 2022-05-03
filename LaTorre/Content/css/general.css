@@ -1,0 +1,13 @@
+﻿
+
+/********************************* BOTONES EJECUCION ***************************************/
+.btn-ejecucion {
+    border-color: #4578b1;
+    color: #4578b1;
+}
+
+    .btn-ejecucion:hover {
+        background-color: #4578b1;
+        color:white;
+
+    }
